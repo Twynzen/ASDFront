@@ -4,15 +4,21 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { SearchMutantComponent } from './search_mutant/searchMutant.component';
+import { SearchfilterPipe } from './pipes/searchfilter.pipe';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchMutantComponent
+    SearchMutantComponent,
+    SearchfilterPipe,
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

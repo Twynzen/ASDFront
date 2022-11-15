@@ -1,38 +1,80 @@
 <div class="search">
     <div class="input-group">
-        <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
-        <button type="button" class="btn btn-outline-primary">search</button>
+        <input type="text" [(ngModel)]="searchValue" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+        <button type="button" class="btn btn-dark">search</button>
     </div>
 </div>
 <div class="board">
     <table class="table table-dark">
         <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Age</th>
+                <th scope="col">Is Alive</th>
+                <th scope="col">Vehicle</th>
+                <th scope="col">Inside Prision</th>
+                <th scope="col">Update now</th>
+
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
+            <tr *ngFor="let mutant of mutants| searchfilter:searchValue ; index as i ">
+                <th scope="row">{{i}}</th>
+                <td>{{mutant.name}}</td>
+                <td>{{mutant.age}}</td>
+                <td>{{mutant.isAlive}}</td>
+                <td>{{mutant.vehicle}}</td>
+                <td>{{mutant.insidePrision}}</td>
+                <td><button class="btn btn-light" (click)="openFormUpdate(mutant);">Update</button></td>
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-            </tr>
+
+            <tr></tr>
         </tbody>
     </table>
+
+    <button class="btn btn-dark" (click)="openForm()" *ngIf="!formNewMutant">Add new mutant</button>
+
+
+
+    <div class="form" *ngIf="(formNewMutant) || (formUpdateMutant)">
+        <div class="modal is-active">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+                <!-- Any other Bulma elements you want -->
+                <form [formGroup]="formMutant">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" formControlName="name" class="form-control" id="name" placeholder="Enter name">
+
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="number" formControlName="age" class="form-control" id="age" placeholder="Enter age">
+                    </div>
+                    <div class="form-group">
+                        <label for="vehicle">Vehicle</label>
+                        <input type="string" formControlName="vehicle" class="form-control" id="vehicle" placeholder="Enter vehicle">
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" formControlName="isAlive" type="checkbox" value="" id="isAlive">
+                        <label class="form-check-label" for="isAlive">
+                  Is Alive?
+                </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" formControlName="insidePrision" type="checkbox" value="" id="insidePrision">
+                        <label class="form-check-label" for="insidePrision">
+                Inside in prision?
+              </label>
+                    </div>
+                    <button type="submit" (click)="updateMutant()" *ngIf="formUpdateMutant" class="btn btn-dark">Submit</button>
+                    <button type="submit" (click)="createMutant()" *ngIf="formNewMutant" class="btn btn-dark">Submit</button>
+                </form>
+            </div>
+            <button class="modal-close is-large" aria-label="close"></button>
+        </div>
+
+    </div>
 </div>

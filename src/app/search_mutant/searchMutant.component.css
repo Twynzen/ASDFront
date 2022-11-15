@@ -5,3 +5,15 @@
 .board {
     margin: 20px 20px 20px 20px;
 }
+
+.form {
+    margin: 50px 400px 50px 400px;
+}
+
+.table {
+    color: aliceblue;
+}
+
+.table thead th {
+    color: azure;
+}
