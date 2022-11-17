@@ -14,6 +14,7 @@
                 <th scope="col">Is Alive</th>
                 <th scope="col">Vehicle</th>
                 <th scope="col">Inside Prision</th>
+                <th scope="col">Place operation</th>
                 <th scope="col">Update now</th>
 
             </tr>
@@ -26,6 +27,7 @@
                 <td>{{mutant.isAlive}}</td>
                 <td>{{mutant.vehicle}}</td>
                 <td>{{mutant.insidePrision}}</td>
+                <td>{{mutant.placeOperation}}</td>
                 <td><button class="btn btn-light" (click)="openFormUpdate(mutant);">Update</button></td>
             </tr>
 
@@ -69,8 +71,15 @@
                 Inside in prision?
               </label>
                     </div>
-                    <button type="submit" (click)="updateMutant()" *ngIf="formUpdateMutant" class="btn btn-dark">Submit</button>
-                    <button type="submit" (click)="createMutant()" *ngIf="formNewMutant" class="btn btn-dark">Submit</button>
+                    <div class="form-group">
+                        <label for="placeOperation">
+              What is the place of operation?
+
+            </label>
+
+                        <input class="form-control" formControlName="placeOperation" type="text" value="" id="placeOperation">
+                    </div>
+                    <button type="submit" (click)="submit()" class="btn btn-dark">Submit</button>
                 </form>
             </div>
             <button class="modal-close is-large" aria-label="close"></button>

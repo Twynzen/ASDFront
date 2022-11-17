@@ -5,4 +5,6 @@ export interface Mutant {
   vehicle: String;
   isAlive: boolean;
   insidePrision: boolean;
+  placeOperation: String;
+
 }

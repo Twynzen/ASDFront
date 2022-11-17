@@ -28,7 +28,9 @@ export class SearchMutantComponent implements OnInit {
     age: [ ,Validators.required ],
     vehicle: ['', Validators.required],
     isAlive: [,Validators.required],
-    insidePrision: [,Validators.required]
+    insidePrision: [,Validators.required],
+    placeOperation: ['',Validators.required]
+
   })
 
   ngOnInit(): void {
@@ -48,7 +50,8 @@ export class SearchMutantComponent implements OnInit {
             age: element.age,
             vehicle: element.vehicle,
             isAlive: element.isAlive,
-            insidePrision: element.insidePrision
+            insidePrision: element.insidePrision,
+            placeOperation: element.placeOperation
           }
           this.mutants.push(everyMutant);
         });
