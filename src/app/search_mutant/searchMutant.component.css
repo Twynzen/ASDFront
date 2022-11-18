@@ -17,3 +17,39 @@
 .table thead th {
     color: azure;
 }
+
+.margin-modal {
+    padding: 100px;
+}
+
+.content-modal {
+    border: 15px solid #000;
+}
+
+.title-form {
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+}
+
+.center-check {
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+    display: flex;
+}
+
+.check-left {
+    position: relative;
+    left: 60%;
+}
+
+.check-rigth {
+    position: relative;
+    left: 5%;
+}
+
+.center-button {
+    position: fixed;
+    width: 44.7%;
+}

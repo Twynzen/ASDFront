@@ -11,7 +11,8 @@ export class SearchfilterPipe implements PipeTransform {
       return Mutants;
     }
     return Mutants.filter (mutant =>
-       mutant.name.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()));
+       mutant.name.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase())||
+       mutant.placeOperation.toLocaleLowerCase().includes(searchValue.toLocaleLowerCase()));
   }
 
 }

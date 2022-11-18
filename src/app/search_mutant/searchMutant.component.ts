@@ -77,6 +77,7 @@ export class SearchMutantComponent implements OnInit {
     const data:Mutant = this.formMutant.value;
     if (data.isAlive === null ) data.isAlive = false;
     if (data.insidePrision === null ) data.insidePrision = false;
+    console.log("NUEVO");
     this.request.post('http://localhost:8080/api/v1/mutants', data).subscribe(res => {
       console.log("Nuevo mutante", res);
     });
@@ -85,6 +86,8 @@ export class SearchMutantComponent implements OnInit {
   }
   updateMutant(){
     const data:Mutant = this.formMutant.value;
+    console.log("UPDATE");
+
     this.request.patch(`http://localhost:8080/api/v1/mutants/${this.mutantId}`, data).subscribe(res => {
       console.log("Mutante actualizado", res);
     });

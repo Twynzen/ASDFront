@@ -40,49 +40,50 @@
 
 
     <div class="form" *ngIf="(formNewMutant) || (formUpdateMutant)">
-        <div class="modal is-active">
+        <div class="modal is-active margin-modal">
             <div class="modal-background"></div>
-            <div class="modal-content">
+            <div class="modal-content ">
                 <!-- Any other Bulma elements you want -->
                 <form [formGroup]="formMutant">
-                    <div class="form-group">
+                    <div class="form-group title-form">
                         <label for="name">Name</label>
                         <input type="text" formControlName="name" class="form-control" id="name" placeholder="Enter name">
 
                     </div>
-                    <div class="form-group">
+                    <div class="form-group title-form">
                         <label for="age">Age</label>
                         <input type="number" formControlName="age" class="form-control" id="age" placeholder="Enter age">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group title-form">
                         <label for="vehicle">Vehicle</label>
                         <input type="string" formControlName="vehicle" class="form-control" id="vehicle" placeholder="Enter vehicle">
                     </div>
 
-                    <div class="form-check">
-                        <input class="form-check-input" formControlName="isAlive" type="checkbox" value="" id="isAlive">
-                        <label class="form-check-label" for="isAlive">
-                  Is Alive?
-                </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" formControlName="insidePrision" type="checkbox" value="" id="insidePrision">
-                        <label class="form-check-label" for="insidePrision">
-                Inside in prision?
-              </label>
-                    </div>
-                    <div class="form-group">
-                        <label for="placeOperation">
+                    <div class="form-group title-form">
+                        <label for="placeOperation ">
               What is the place of operation?
 
             </label>
-
-                        <input class="form-control" formControlName="placeOperation" type="text" value="" id="placeOperation">
+                        <input class="form-control " formControlName="placeOperation" type="text " value=" " id="placeOperation ">
                     </div>
-                    <button type="submit" (click)="submit()" class="btn btn-dark">Submit</button>
+                    <div class="center-check">
+                        <div class="form-check check-left">
+                            <input class="form-check-input" formControlName="isAlive" type="checkbox" value="" id="isAlive">
+                            <label class="form-check-label" for="isAlive">
+                Is Alive?
+              </label>
+                        </div>
+                        <div class="form-check check-rigth">
+                            <input class="form-check-input" formControlName="insidePrision" type="checkbox" value="" id="insidePrision">
+                            <label class="form-check-label" for="insidePrision">
+              Inside in prision?
+            </label>
+                        </div>
+                    </div>
+                    <button type="submit " (click)="submit() " class="btn btn-dark center-button">Save Changes</button>
                 </form>
             </div>
-            <button class="modal-close is-large" aria-label="close"></button>
+            <button class="modal-close is-large " aria-label="close "></button>
         </div>
 
     </div>

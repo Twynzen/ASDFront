@@ -20,7 +20,7 @@ export class RequestService {
   public patch(url:string, data:Mutant){
     console.log(data);
 
-    return this.Http_client.post(url,data);
+    return this.Http_client.patch(url,data);
   }
 
 

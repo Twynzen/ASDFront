@@ -6,5 +6,4 @@ export interface Mutant {
   isAlive: boolean;
   insidePrision: boolean;
   placeOperation: String;
-
 }
