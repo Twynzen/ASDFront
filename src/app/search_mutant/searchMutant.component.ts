@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Mutant } from '../interfaces/mutant.interface';
+import { HttpHeaders} from '@angular/common/http';
 import { RequestService } from '../services/request.service';
 import { SearchfilterPipe } from '../pipes/searchfilter.pipe';
 import { FormBuilder, Validators } from '@angular/forms';
@@ -38,6 +39,7 @@ export class SearchMutantComponent implements OnInit {
     console.log(this.mutants);
   }
   getAllMutants(){
+
     this.request.get('http://localhost:8080/api/v1/mutants').subscribe(
       (res:any) => {
       this.mutants = [];

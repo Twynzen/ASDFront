@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Mutant } from '../interfaces/mutant.interface';
 
@@ -10,6 +10,7 @@ export class RequestService {
   constructor(
     private Http_client: HttpClient,
   ) { }
+
 
   public get(url:string){
     return this.Http_client.get(url);
