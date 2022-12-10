@@ -25,18 +25,19 @@ export class SearchMutantComponent implements OnInit {
   ) { }
 
   formMutant = this.formBuilder.group({
-    name: ['', Validators.required],
-    age: [ ,Validators.required ],
-    vehicle: ['', Validators.required],
-    isAlive: [,Validators.required],
-    insidePrision: [,Validators.required],
-    placeOperation: ['',Validators.required]
-
-  })
+    name: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(30)]],
+    age: ['', [Validators.required, Validators.min(18), Validators.max(50)]],
+    vehicle: ['', [Validators.required, Validators.maxLength(150)]],
+    isAlive: ['', Validators.required],
+    insidePrision: ['', Validators.required],
+    placeOperation: ['', [Validators.required, Validators.maxLength(500)]],
+  });
 
   ngOnInit(): void {
     this.getAllMutants();
     console.log(this.mutants);
+
+
   }
   getAllMutants(){
 
@@ -97,11 +98,14 @@ export class SearchMutantComponent implements OnInit {
     this.formUpdateMutant = false;
   }
   submit(){
-    if (this.formNewMutant) {
-      this.createMutant();
-    }else if (this.formUpdateMutant){
-      this.updateMutant();
+    if (this.formMutant.valid) {
+      if (this.formNewMutant) {
+        this.createMutant();
+      }else if (this.formUpdateMutant){
+        this.updateMutant();
+      }
     }
+
   }
 
 
